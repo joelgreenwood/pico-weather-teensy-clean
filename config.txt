@@ -1,0 +1,7 @@
+ssid=YaleGuest
+password=
+lat=41.304
+lon=-72.931
+openweathermap_key=[YOUR API KEY HERE (without brakets)]
+refresh_mins=60
+cache_mins=10

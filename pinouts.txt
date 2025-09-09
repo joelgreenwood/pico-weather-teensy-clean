@@ -1,0 +1,42 @@
+# Pico + e-Paper Display + Teensy Pinout
+
+## e-Paper Display (Paperwhite) to Pico
++----------------+-------------+----------------+------------------------+
+| Display Pin    | Pico GPIO   | Pico Physical  | Function               |
++----------------+-------------+----------------+------------------------+
+| VCC            | 3V3 (OUT)  | 36             | Power (3.3V)           |
+| GND            | GND         | 38             | Ground                 |
+| DIN (MOSI)     | GP11        | 15             | SPI Data In            |
+| CLK (SCK)      | GP10        | 14             | SPI Clock              |
+| CS             | GP9         | 12             | Chip Select            |
+| DC             | GP8         | 11             | Data/Command Control   |
+| RST            | GP12        | 16             | Reset                  |
+| BUSY           | GP13        | 17             | Busy Status            |
++----------------+-------------+----------------+------------------------+
+
+## Pico to Teensy (I2C)
++----------------+-------------+----------------+------------------------+
+| Signal         | Pico GPIO   | Pico Physical  | Function               |
++----------------+-------------+----------------+------------------------+
+| SDA            | GP4         | 6              | I2C Data               |
+| SCL            | GP5         | 7              | I2C Clock              |
++----------------+-------------+----------------+------------------------+
+
+## Teensy H-Bridge / Peltier Control
++----------------+-------------+----------------+------------------------+
+| Function       | Teensy Pin  | Notes          | Description            |
++----------------+-------------+----------------+------------------------+
+| ENABLE         | 1           | Digital Out    | H-bridge enable        |
+| DIR            | 2           | Digital Out    | H-bridge direction     |
+| PWM            | 3           | PWM Out        | H-bridge speed control |
+| THERM          | A0          | Analog In      | Thermistor input       |
+| TOUCH          | 12          | Digital In     | Touch sensor input     |
+| YELLOW LED     | 6           | Digital Out    | Status LED             |
+| GREEN LED      | 7           | Digital Out    | Status LED             |
+| HEARTBEAT LED  | LED_BUILTIN | Onboard        | Status heartbeat       |
++----------------+-------------+----------------+------------------------+
+
+## Notes
+- I2C: Pico is master, Teensy is slave at address 0x08
+- Display uses SPI; I2C is separate and will not conflict with SPI pins
+- All voltages compatible (3.3V logic)
